@@ -6,27 +6,24 @@ class Account {
     this.balance = 0;  
   }
 }
-class Withdrawal {
 
+class Transaction {
   constructor(amount, account) {
-    this.amount = amount;
+    this.amount = amount; 
     this.account = account; 
   }
-
-  commit() {
-    this.account.balance -= this.amount;
-  }
-
 }
 
-class Deposit {
-    constructor(amount, account) {
-      this.amount = amount; 
-      this.account = account; 
-    }
-    commit() {
-      this.account.balance += this.amount; 
-    }
+class Withdrawl extends Transaction {
+  commit() {
+    this.account.balance -= this.amount; 
+  }
+}
+
+class Deposit extends Transaction {
+  commit() {
+    this.account.balance += this.amount; 
+  }
 }
 
 
@@ -53,4 +50,29 @@ console.log('Marc Wallet Balance:', myAccount.balance);
 t3 = new Deposit(120.00, myAccount); 
 t3.commit(); 
 console.log('Marc Wallet Transaction 3', t3); 
+
+
+
+// class Withdrawal {
+
+//   constructor(amount, account) {
+//     this.amount = amount;
+//     this.account = account; 
+//   }
+
+//   commit() {
+//     this.account.balance -= this.amount;
+//   }
+
+// }
+
+// class Deposit {
+//     constructor(amount, account) {
+//       this.amount = amount; 
+//       this.account = account; 
+//     }
+//     commit() {
+//       this.account.balance += this.amount; 
+//     }
+// }
 
